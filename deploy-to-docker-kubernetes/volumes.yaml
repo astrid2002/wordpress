@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+name: local-pv-1
+labels:
+type: local
+spec:
+capacity:
+storage: 10Gi
+accessModes:
+- ReadWriteOnce
+hostPath:
+path: /k8/volume/pv-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+name: local-pv-2
+labels:
+type: local
+spec:
+capacity:
+storage: 10Gi
+accessModes:
+- ReadWriteOnce
+hostPath:
+path: /k8/volume/pv-2
+This config will create two R/W 10GB volumes in the node paths:
+/k8/volume/pv-1
+/k8/volume/pv-2
